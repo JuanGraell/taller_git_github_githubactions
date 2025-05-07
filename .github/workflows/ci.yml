@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  run-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - name: Ejecutar programa
+        run: python main.py
