@@ -44,9 +44,13 @@ def mostrar_tabla(estudiantes):
         print(f"{e.nombre.ljust(ancho_nombre)}| {e.nota:>.2f}".rjust(ancho_nota + ancho_nombre + 2))
 
 def calcular_promedio(estudiantes):
-    """Calcula y devuelve el promedio de notas."""
-    pass
+    """Calcula y devuelve el promedio de notas con dos decimales."""
+    if not estudiantes:
+        return 0.0
+    total = sum(e.nota for e in estudiantes)
+    promedio = total / len(estudiantes)
+    return round(promedio, 2)
 
 def mostrar_promedio(promedio):
     """Imprime el promedio de notas."""
-    pass
+    print(f"\nPromedio general de notas: {promedio:.2f}")
